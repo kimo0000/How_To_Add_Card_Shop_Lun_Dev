@@ -1,0 +1,240 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100vh;
+  background-color: #eee;
+  height: 100vh;
+}
+.wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 15px auto;
+  /* box-shadow: 10px 10px 12px rgba(0,0,0,0.1),
+                -10px -10px 12px rgba(0,0,0,0.1); */
+  transition: transform 0.3s ease;
+}
+.wrapper.show_card {
+  transform: translateX(-50px);
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* box-shadow: 0 10px 12px rgba(0, 0, 0, 0.5); */
+  padding: 15px;
+  padding: 10px 20px;
+}
+header .shop {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+.shop .counter {
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.listproduct {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  justify-content: space-between;
+  /* background-color: red; */
+  padding: 10px;
+}
+.listproduct .item {
+  list-style: none;
+  background-color: #ddd;
+  padding: 5px;
+  border-radius: 12px;
+  text-align: center;
+}
+.item .title {
+  font-weight: 700;
+  font-size: 14px;
+  white-space: wrap;
+}
+.item .chair {
+  color: #777;
+}
+.item .price {
+  color: #777;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+.listproduct img {
+  width: 100%;
+}
+.add {
+  padding: 4px 15px;
+  border-radius: 30px;
+  background-color: #111;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.add:hover {
+  opacity: 1;
+}
+.card_left {
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  right: -350px;
+  bottom: 0;
+  width: 270px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 15px;
+  transition: right 0.3s;
+}
+body.show_card .card_left {
+  right: 0px;
+  top: 0;
+  bottom: 0;
+}
+.card_left h3 {
+  padding: 10px;
+  letter-spacing: 2px;
+  box-shadow: 5px 5px 8px rgba(35, 50, 15, 0.7);
+}
+.card_left .close_choice_card {
+  color: #fff;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.list_choice {
+  overflow-y: auto;
+}
+.list_choice::-webkit-scrollbar {
+  width: 0;
+}
+.list_choice .item {
+  display: grid;
+  grid-template-columns: 50px repeat(4, 1fr);
+  gap: 12px;
+  font-size: 10px;
+  text-align: center;
+  padding: 5px;
+}
+.list_choice .item:nth-child(even) {
+  background-color: rgba(5, 50, 50);
+}
+.list_choice .item img {
+  width: 100%;
+  object-fit: cover;
+}
+.list_choice .item .title,
+.list_choice .item .chair,
+.list_choice .item .price,
+.list_choice .item .btns_added {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list_choice .item .title {
+  font-size: 12px;
+  color: #777;
+}
+.list_choice .item .price {
+  font-size: 16px;
+}
+.list_choice .item .btns_added {
+  gap: 10px;
+}
+.list_choice .item .btns_added i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff24;
+  color: #000;
+  text-align: center;
+  line-height: 12px;
+  border-radius: 50%;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.list_choice .item .btns_added i:hover {
+  background-color: #fff;
+}
+.btns_added .number_of_count {
+  font-weight: 700;
+  font-size: 14px;
+}
+.btns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.btns button {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: 0.3s;
+}
+.btns button:hover {
+  opacity: 0.9;
+}
+.btns .check_out {
+  background-color: orange;
+}
+.list_pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 15px;
+  margin: 25px 0 0;
+}
+.list_pages li {
+  width: 25px;
+  height: 25px;
+  background-color: #f89292;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.list_pages li:hover {
+  background-color: red;
+}
+.list_pages li.active {
+  background-color: red;
+}
+.list_pages .prev,
+.list_pages .next {
+  width: fit-content;
+  padding: 0 5px;
+  border-radius: 0 8px 8px 0;
+}
+.list_pages .next {
+  border-radius: 8px 0 0 8px;
+}
